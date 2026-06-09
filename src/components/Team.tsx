@@ -16,7 +16,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Tore N. Hansen", 
     role: "CEO and Co-founder", 
-    img: "brand_assets/tore_blue.png",
+    img: "tore_blue.png",
     tags: "Exploration | Seismic Interpretation | Prospect Screening",
     science: "Geoscientist (Cand. Scient., University of Tromsø)",
     pos: "center 15%"
@@ -24,7 +24,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Dr. Per Avseth", 
     role: "CTO and Co-founder", 
-    img: "brand_assets/Per_blue.png",
+    img: "Per_blue.png",
     tags: "Rock Physics | AVO Analysis | Quantitative Interpretation | Sedimentology",
     science: "Geophysicist (PhD, Stanford University)",
     honours: "SEG Honorary Lecturer in Europe (2009), Norwegian Geophysical Award (2012)",
@@ -33,7 +33,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Dr. Åsmund Drottning", 
     role: "COO", 
-    img: "brand_assets/Asmund_blue.png",
+    img: "Asmund_blue.png",
     tags: "Rock Physics | AVO Analysis | Seismic Modelling | Survey Design",
     science: "Geophysicist (Dr. Scient., University of Bergen)",
     pos: "center 15%"
@@ -41,7 +41,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Ivan Lehocki", 
     role: "Lead Data Scientist and Co-founder", 
-    img: "brand_assets/Ivan_blue.png",
+    img: "Ivan_blue.png",
     tags: "Rock Physics | AVO Analysis Inversion | Data Science | Software Development",
     science: "Geophysicist (MSc, Eötvös Loránd University)",
     honours: "Young Petroleum Geoscientist Award (2015)",
@@ -50,7 +50,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Kristian Angard", 
     role: "Lead Petroleum System Analyst and Co-founder", 
-    img: "brand_assets/Kristian_blue.png",
+    img: "Kristian_blue.png",
     tags: "Petroleum Systems | Exploration | Basin Analysis",
     science: "Geologist (Cand. Scient., University of Oslo)",
     pos: "center 15%"
@@ -58,7 +58,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Dr. Erling Jensen", 
     role: "Lead Software Architect", 
-    img: "brand_assets/Erling_blue.png",
+    img: "Erling_blue.png",
     tags: "Rock Physics | Inverse Modelling | Reservoir Geophysics | Software",
     science: "Rock Physicist (PhD, University of Bergen)",
     pos: "center 15%"
@@ -66,7 +66,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Tor Arne Johansen", 
     role: "Professor Emeritus, UiB and Co-founder", 
-    img: "brand_assets/Tor_arne_blue.png",
+    img: "Tor_arne_blue.png",
     tags: "Rock Physics | AVO Analysis | Inverse Rock Physics | CO₂ Storage",
     science: "Geophysicist (University of Bergen)",
     pos: "center 15%"
@@ -74,7 +74,7 @@ const TEAM: TeamMember[] = [
   { 
     name: "Zain Ul Abideen", 
     role: "Geophysicist", 
-    img: "brand_assets/Zain_blue.png",
+    img: "Zain_blue.png",
     tags: "Quantitative Interpretation | Rock Physics | Subsurface Evaluation",
     science: "Geophysicist (MSc)",
     pos: "center 15%"
@@ -108,7 +108,7 @@ function TeamMemberCard({ member, i }: TeamMemberCardProps) {
       {/* Background Image Container */}
       <div className="absolute inset-0 overflow-hidden bg-gradient-to-b from-[#112240] to-[#0A192F]">
         <img 
-          src={member.img} 
+          src={`${import.meta.env.BASE_URL}assets/images/${member.img}`} 
           alt={member.name} 
           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.05]" 
           style={{ 

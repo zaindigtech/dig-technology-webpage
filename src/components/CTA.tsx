@@ -41,7 +41,7 @@ export default function CTA() {
 
           <div className="lg:w-2/5 relative min-h-[300px] lg:min-h-full overflow-hidden">
             <img 
-              src="brand_assets/Corporate_image.png" 
+              src={`${import.meta.env.BASE_URL}assets/images/Corporate_image.png`} 
               alt="Contact DIG Technology" 
               className="absolute inset-0 w-full h-full object-cover"
               referrerPolicy="no-referrer"

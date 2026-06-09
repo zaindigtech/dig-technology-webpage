@@ -8,28 +8,28 @@ const INDUSTRIES = [
     tab: 'Frontier Exploration',
     eyebrow: 'Frontier Exploration',
     desc: 'Reduce exploration risk in data-sparse basins by evaluating AVO feasibility and predicting lithology and fluid response before drilling.',
-    img: 'brand_assets/frontier1.png'
+    img: 'frontier1.png'
   },
   {
     id: 1,
     tab: 'Appraisal & Delineation',
     eyebrow: 'Appraisal & Delineation',
     desc: 'Quantify uncertainty in reservoir properties and extend predictions away from well control to support appraisal and development planning.',
-    img: 'brand_assets/appraisal_delineation.png'
+    img: 'appraisal_delineation.png'
   },
   {
     id: 2,
     tab: '4D Production Monitoring',
     eyebrow: '4D Production Monitoring',
     desc: 'Use time-lapse seismic and rock physics to track fluid movement and pressure changes, supporting reservoir management and production optimization.',
-    img: 'brand_assets/4D_production_monitoring.png'
+    img: '4D_production_monitoring.png'
   },
   {
     id: 3,
     tab: 'CO₂ Storage Monitoring',
     eyebrow: 'CO₂ Storage Monitoring',
     desc: 'Apply rock physics-driven workflows to detect, track, and verify CO₂ plume movement in subsurface storage formations.',
-    img: 'brand_assets/carbon_monitoring.png'
+    img: 'carbon_monitoring.png'
   }
 ];
 
@@ -137,7 +137,7 @@ export default function Applications() {
               </div>
               <div className={`relative min-h-[300px] md:min-h-0 overflow-hidden transition-colors duration-300 ${INDUSTRIES[activeId].id === 2 ? 'bg-white' : ''}`}>
                 <img 
-                  src={INDUSTRIES[activeId].img} 
+                  src={`${import.meta.env.BASE_URL}assets/images/${INDUSTRIES[activeId].img}`} 
                   alt="" 
                   className={`w-full h-full ${INDUSTRIES[activeId].id === 2 ? 'object-contain' : 'object-cover'}`} 
                   referrerPolicy="no-referrer"

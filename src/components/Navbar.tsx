@@ -106,7 +106,7 @@ export default function Navbar() {
           onClick={(e) => handleNavClick(e, 'home')}
         >
           <img 
-            src="brand_assets/Dig-logo-coral-transparent.png" 
+            src={`${import.meta.env.BASE_URL}assets/images/Dig-logo-coral-transparent.png`} 
             alt="DIG Technology" 
             className="h-10 md:h-12 w-auto"
           />

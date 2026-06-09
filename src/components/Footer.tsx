@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <div className="mb-1">
               <img 
-                src="brand_assets/Dig-logo-coral-transparent.png" 
+                src={`${import.meta.env.BASE_URL}assets/images/Dig-logo-coral-transparent.png`} 
                 alt="DIG Technology" 
                 className="h-20 w-auto opacity-90"
               />

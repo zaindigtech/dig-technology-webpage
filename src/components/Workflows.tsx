@@ -41,7 +41,7 @@ const TECH_CARDS = [
     shortTitle: "AVO Feasibility",
     desc: "Geologically constrained AVO feasibility maps and volumes that predict which seismic signatures to expect — for different reservoir fluid, quality, and lithology scenarios — giving your team a defensible, geology-first basis for amplitude interpretation before you drill.",
     highlight: "Reduces prospect risk by grounding amplitude analysis in the rock's actual burial history rather than generic templates.",
-    img: "brand_assets/AVO_feasibility_workflow.png",
+    img: "AVO_feasibility_workflow.png",
     icon: Layers
   },
   {
@@ -50,7 +50,7 @@ const TECH_CARDS = [
     shortTitle: "Density Ratio",
     desc: "A proprietary inversion method, rooted in the full Zoeppritz equations, that extracts acoustic impedance and density ratios directly from seismic AVO data — without the approximations that limit conventional methods.",
     highlight: "Density is the most direct seismic link to hydrocarbon saturation. This technology gives you that connection where others cannot.",
-    img: "brand_assets/Density_ratio.png",
+    img: "Density_ratio.png",
     icon: DensityRatioIcon
   },
   {
@@ -59,7 +59,7 @@ const TECH_CARDS = [
     shortTitle: "IRPM Analysis",
     desc: "Our stochastic and probabilistic Inverse Rock Physics Modelling method predicts reservoir rock properties — porosity, cementation, saturation — directly from seismic AVO data, bypassing conventional inversion limitations.",
     highlight: "Delivers reservoir property predictions with quantified uncertainty, giving decision-makers a clearer picture of what lies beneath.",
-    img: "brand_assets/IRPM new1.png",
+    img: "IRPM new1.png",
     icon: IRPMIcon
   }
 ];
@@ -219,7 +219,7 @@ export default function Workflows() {
                   className="absolute inset-0 flex items-center justify-center p-8 lg:p-12"
                 >
                   <img 
-                    src={activeCard.img} 
+                    src={`${import.meta.env.BASE_URL}assets/images/${activeCard.img}`} 
                     alt={activeCard.title} 
                     className="max-w-full max-h-full object-contain"
                     referrerPolicy="no-referrer"

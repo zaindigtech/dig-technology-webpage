@@ -9,7 +9,7 @@ const SLIDES = [
     headingHtml: <><span className="text-pink">Reduce Uncertainty</span><br />with Physics-Guided Seismic</>,
     description: 'Rock physics and AVO-driven prediction of lithology, fluids, and reservoir properties.',
     type: 'portrait',
-    src: 'brand_assets/Per11.png',
+    src: 'Per11.png',
     alt: 'Dr. Per Avseth, CTO of DIG Technology',
     quote: 'The rock remembers. We help you read it.',
     name: 'Dr. Per Avseth',
@@ -20,7 +20,7 @@ const SLIDES = [
     headingHtml: <><span className="text-pink">IRPM</span><br />Inverse Rock Physics Modelling</>,
     description: 'Probabilistic prediction of reservoir properties from seismic AVO using calibrated rock physics models.',
     type: 'product',
-    src: 'brand_assets/IRPM new1.png',
+    src: 'IRPM new1.png',
     alt: 'IRPM subsurface property prediction model',
     label: 'IRPM Technology',
     blend: true,
@@ -31,7 +31,7 @@ const SLIDES = [
     headingHtml: <><span className="text-pink">DIG DEEP</span></>,
     description: 'Predict reservoir properties away from wells using seismic data constrained by rock physics.',
     type: 'product',
-    src: 'brand_assets/AVO_feasibilty_Ivan.png',
+    src: 'AVO_feasibilty_Ivan.png',
     alt: 'DIG DEEP 3D reservoir property prediction volume',
     label: 'DIG DEEP 3D',
     blend: false,
@@ -166,7 +166,7 @@ export default function Hero() {
           loop 
           playsInline
         >
-          <source src="brand_assets/Background_video_hero_nowatermark.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}assets/videos/Background_video_hero_nowatermark.mp4`} type="video/mp4" />
         </video>
         
 
@@ -261,7 +261,7 @@ export default function Hero() {
                         {/* Floating Portrait with Soft Mask - Responsive Scaling */}
                         <div className="relative w-full aspect-[4/5] max-w-[120px] sm:max-w-[180px] lg:max-w-[220px] overflow-hidden rounded-none">
                           <img 
-                            src={currentSlide.src} 
+                            src={`${import.meta.env.BASE_URL}assets/images/${currentSlide.src}`} 
                             alt={currentSlide.alt} 
                             className="w-full h-full object-cover brightness-105 contrast-105" 
                             style={{ 
@@ -293,7 +293,7 @@ export default function Hero() {
                     <div className="relative flex flex-col items-center gap-5 w-full pt-5">
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[340px] aspect-square rounded-full bg-radial-gradient from-purple/55 to-transparent blur-3xl pointer-events-none" />
                       <img 
-                        src={currentSlide.src} 
+                        src={`${import.meta.env.BASE_URL}assets/images/${currentSlide.src}`} 
                         alt={currentSlide.alt} 
                         className={`relative z-10 w-full max-w-[360px] aspect-square object-contain ${currentSlide.blend ? 'mix-blend-multiply' : 'mix-blend-screen'}`}
                         referrerPolicy="no-referrer"
