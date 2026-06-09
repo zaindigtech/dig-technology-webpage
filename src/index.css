@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-navy: #0A192F;
+  --color-navy-deep: #061021;
+  --color-navy-light: #172A45;
+  --color-navy-lighter: #233554;
+  --color-purple: #503D81;
+  --color-purple-dark: #3d2f65;
+  --color-pink: #F56C81;
+  --color-pink-dark: #d9556a;
+  --color-teal: #00c8d7;
+  --color-off-white: #e8e0f5;
+  --color-muted: #9ba5b6;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-card-bg: rgba(255, 255, 255, 0.04);
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-white font-sans antialiased;
+  }
+  section {
+    scroll-margin-top: 72px;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-8 md:px-12 lg:px-16;
+  }
+  
+  .section-label {
+    @apply uppercase text-pink mb-4;
+    font-size: clamp(14px, 1vw, 16px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white;
+  }
+  
+  .section-subtitle {
+    @apply text-base text-muted mt-4 max-w-xl leading-relaxed;
+  }
+  
+  .btn {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 rounded-none text-[0.95rem] font-semibold cursor-pointer transition-all duration-250 border-none;
+  }
+  
+  .btn-primary {
+    @apply bg-purple text-white hover:bg-pink hover:-translate-y-[1px];
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-white border-[1.5px] border-white/35 hover:bg-purple/20 hover:border-purple hover:-translate-y-[1px];
+  }
+}
