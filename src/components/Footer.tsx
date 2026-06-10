@@ -65,7 +65,7 @@ export default function Footer() {
               </p>
             </div>
             <p className="text-[0.65rem] text-slate-600 uppercase tracking-wider">
-              Last updated: 14 April 2026
+              Last updated: 10 June 2026
             </p>
           </div>
           <div className="flex gap-4 shrink-0">
