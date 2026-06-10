@@ -112,25 +112,17 @@ export default function Research() {
 
           const element = document.getElementById(targetId);
           if (element) {
-            const headerOffset = 96; // Matching exactly height of navbar
-            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
             });
           } else {
             // Fallback to parent research section header
             const parentElement = document.getElementById('research');
             if (parentElement) {
-              const headerOffset = 96;
-              const elementPosition = parentElement.getBoundingClientRect().top + window.scrollY;
-              const offsetPosition = elementPosition - headerOffset;
-
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+              parentElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
               });
             }
           }

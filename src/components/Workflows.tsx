@@ -114,13 +114,9 @@ export default function Workflows() {
 
           const element = document.getElementById(targetId);
           if (element) {
-            const headerOffset = 96;
-            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
             });
           }
 

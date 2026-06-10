@@ -60,15 +60,11 @@ export default function Hero() {
       isProgrammaticScroll.current = true;
     }
 
-    const headerOffset = 96; // Matching exactly height of navbar (96px)
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - headerOffset;
-
     window.history.pushState(null, '', `#${sectionId}`);
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
 
     setTimeout(() => {
@@ -79,7 +75,6 @@ export default function Hero() {
   };
 
   const scrollToElementWhenReady = (targetId: string, fallbackId: string = 'research') => {
-    const headerOffset = 110;
     let attempts = 0;
     const maxAttempts = 30;
 
@@ -92,12 +87,9 @@ export default function Hero() {
       const element = document.getElementById(targetId);
 
       if (element) {
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
         return;
       }
@@ -110,12 +102,9 @@ export default function Hero() {
         console.warn(`Target element with ID "${targetId}" not found in DOM after ${maxAttempts} attempts.`);
         const fallback = document.getElementById(fallbackId);
         if (fallback) {
-          const fallbackPosition = fallback.getBoundingClientRect().top;
-          const offsetPosition = fallbackPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+          fallback.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
           });
         } else {
           console.warn(`Both target ID "${targetId}" and fallback ID "${fallbackId}" were not found in the DOM.`);

@@ -22,8 +22,8 @@
   body {
     @apply bg-navy text-white font-sans antialiased;
   }
-  section {
-    scroll-margin-top: 72px;
+  section, [id] {
+    scroll-margin-top: 96px;
   }
 }
 

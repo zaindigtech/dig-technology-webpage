@@ -60,13 +60,10 @@ export default function Navbar() {
     isProgrammaticScroll.current = true;
     setActiveSection(id);
 
-    const headerOffset = 96; // Height of the navbar (h-24 = 6rem = 96px)
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
+    // Use native scrollIntoView which is extremely reliable and respects css scroll-margin-top
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
 
     // Reset flag after scroll animation completes

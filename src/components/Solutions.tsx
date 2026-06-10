@@ -227,13 +227,10 @@ function ServiceCard({ svc, i }: ServiceCardProps) {
         const targetId = link.substring(1);
         const element = document.getElementById(targetId);
         if (element) {
-          const headerOffset = 96;
-          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-          const offsetPosition = elementPosition - headerOffset;
           window.history.pushState(null, '', link);
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
           });
         }
       }

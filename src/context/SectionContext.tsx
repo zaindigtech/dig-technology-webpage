@@ -89,10 +89,10 @@ export const SectionProvider: React.FC<{ children: React.ReactNode }> = ({ child
     };
 
     const handleManualInteraction = () => {
-      // If the scroll was initiated less than 450ms ago, ignore the interaction
-      // (This filters out trackpad click-tap-bounce events and momentum noise)
+      // If the scroll was initiated less than 1500ms ago, ignore the interaction
+      // (This filters out trackpad click-tap-bounce events and momentum noise during smooth scroll)
       const now = Date.now();
-      if (now - lastProgrammaticSetTime.current < 450) {
+      if (now - lastProgrammaticSetTime.current < 1500) {
         return;
       }
       
@@ -100,13 +100,19 @@ export const SectionProvider: React.FC<{ children: React.ReactNode }> = ({ child
       isProgrammaticScrollRef.current = false;
     };
 
+    const handleScrollEnd = () => {
+      isProgrammaticScrollRef.current = false;
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scrollend', handleScrollEnd);
     window.addEventListener('wheel', handleManualInteraction, { passive: true });
     window.addEventListener('touchmove', handleManualInteraction, { passive: true });
 
     return () => {
       observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scrollend', handleScrollEnd);
       window.removeEventListener('wheel', handleManualInteraction);
       window.removeEventListener('touchmove', handleManualInteraction);
       if (autoReleaseTimeoutRef.current) {
