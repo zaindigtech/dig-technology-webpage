@@ -42,36 +42,11 @@ const SLIDES = [
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const { isProgrammaticScroll, setActiveSection } = useSection();
+  const { scrollToSection: contextScrollToSection } = useSection();
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
-
-    const element = document.getElementById(sectionId);
-    if (!element) {
-      console.warn(`Section not found: ${sectionId}`);
-      return;
-    }
-
-    if (setActiveSection) {
-      setActiveSection(sectionId);
-    }
-    if (isProgrammaticScroll) {
-      isProgrammaticScroll.current = true;
-    }
-
-    window.history.pushState(null, '', `#${sectionId}`);
-
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-
-    setTimeout(() => {
-      if (isProgrammaticScroll) {
-        isProgrammaticScroll.current = false;
-      }
-    }, 1200);
+    contextScrollToSection(sectionId);
   };
 
   const scrollToElementWhenReady = (targetId: string, fallbackId: string = 'research') => {
@@ -87,10 +62,7 @@ export default function Hero() {
       const element = document.getElementById(targetId);
 
       if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        contextScrollToSection(targetId);
         return;
       }
 
@@ -100,15 +72,7 @@ export default function Hero() {
         requestAnimationFrame(tryScroll);
       } else {
         console.warn(`Target element with ID "${targetId}" not found in DOM after ${maxAttempts} attempts.`);
-        const fallback = document.getElementById(fallbackId);
-        if (fallback) {
-          fallback.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        } else {
-          console.warn(`Both target ID "${targetId}" and fallback ID "${fallbackId}" were not found in the DOM.`);
-        }
+        contextScrollToSection(fallbackId);
       }
     };
 

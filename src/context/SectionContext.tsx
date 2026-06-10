@@ -4,6 +4,7 @@ interface SectionContextType {
   activeSection: string;
   setActiveSection: (section: string) => void;
   isProgrammaticScroll: React.MutableRefObject<boolean>;
+  scrollToSection: (id: string, duration?: number) => void;
 }
 
 const SectionContext = createContext<SectionContextType | undefined>(undefined);
@@ -13,6 +14,57 @@ export const SectionProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const isProgrammaticScrollRef = useRef(false);
   const lastProgrammaticSetTime = useRef(0);
   const autoReleaseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const scrollToSection = (id: string, duration: number = 900) => {
+    const element = document.getElementById(id);
+    if (!element) {
+      console.warn(`scrollToSection: element with id "${id}" not found`);
+      return;
+    }
+
+    // Set flag and record time
+    isProgrammaticScrollRef.current = true;
+    lastProgrammaticSetTime.current = Date.now();
+    setActiveSection(id);
+
+    // Update URL hash without standard jump
+    window.history.pushState(null, '', `#${id}`);
+
+    const startY = window.scrollY;
+    const startTime = performance.now();
+    const offset = 96; // Navbar height offset (6rem = 96px)
+
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Smooth custom cubic ease-in-out
+      const ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      // RE-EVALUATE the target Y coordinate on every frame to adapt perfectly to layout shifts or lazy image loading!
+      const currentTargetY = element.getBoundingClientRect().top + window.scrollY - offset;
+      const nextY = startY + (currentTargetY - startY) * ease;
+
+      window.scrollTo(0, nextY);
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        // Fine-tuned snapping at the end of scroll
+        const finalTargetY = element.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo(0, finalTargetY);
+
+        // Small grace period lock release
+        setTimeout(() => {
+          isProgrammaticScrollRef.current = false;
+        }, 100);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
 
   const isProgrammaticScroll = useRef<React.MutableRefObject<boolean>>({
     get current() {
@@ -122,7 +174,7 @@ export const SectionProvider: React.FC<{ children: React.ReactNode }> = ({ child
   }, []);
 
   return (
-    <SectionContext.Provider value={{ activeSection, setActiveSection, isProgrammaticScroll }}>
+    <SectionContext.Provider value={{ activeSection, setActiveSection, isProgrammaticScroll, scrollToSection }}>
       {children}
     </SectionContext.Provider>
   );

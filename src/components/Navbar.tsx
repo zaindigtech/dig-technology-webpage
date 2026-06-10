@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState<string | null>(null);
-  const { activeSection, setActiveSection, isProgrammaticScroll } = useSection();
+  const { activeSection, scrollToSection } = useSection();
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -50,27 +50,7 @@ export default function Navbar() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (!element) return;
-
-    // Clear any existing timeout to prevent premature re-enabling of observer
-    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-
-    // Set programmatic scroll flag to prevent observer from overriding
-    isProgrammaticScroll.current = true;
-    setActiveSection(id);
-
-    // Use native scrollIntoView which is extremely reliable and respects css scroll-margin-top
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-
-    // Reset flag after scroll animation completes
-    scrollTimeoutRef.current = setTimeout(() => {
-      isProgrammaticScroll.current = false;
-      scrollTimeoutRef.current = null;
-    }, 1200);
+    scrollToSection(id);
 
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);

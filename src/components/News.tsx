@@ -14,7 +14,7 @@ const NEWS_ITEMS = [
     date: "February 23, 2026",
     category: "R&D",
     title: "Shale R&D Project: Phase 2 kicks off",
-    excerpt: "DIG Technology is expanding its shale rock physics research into a consortium phase, with OMV supporting Phase 2. A new industry partner is expected to join the project and will be announced soon.",
+    excerpt: "Dig Technology is expanding its shale rock physics research into a consortium phase. Vår Energi has joined OMV as the second member, confirming participation on 23 February 2026.",
     link: ""
   },
   {

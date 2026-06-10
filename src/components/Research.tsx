@@ -52,7 +52,7 @@ const PUB_DATA = [
 export default function Research() {
   const [activeTab, setActiveTab] = useState(0);
   const [clickedLinks, setClickedLinks] = useState<Set<string>>(new Set());
-  const { activeSection, setActiveSection, isProgrammaticScroll } = useSection();
+  const { activeSection, scrollToSection } = useSection();
   const isActive = activeSection === 'research';
 
   const activeTabRef = useRef(0);
@@ -90,49 +90,17 @@ export default function Research() {
         // Set the active tab
         setActiveTab(targetTabIndex);
 
-        // Update active section in context so highlight matches
-        if (setActiveSection) {
-          setActiveSection('research');
-        }
-
-        // Programmatic scroll lock
-        if (isProgrammaticScroll) {
-          isProgrammaticScroll.current = true;
-        }
-
         // Dynamic Scroll Delay: If tab changes, wait 450ms for exit/entry transitions to settle
         // If already active, scroll immediately to the element with a safe 50ms layout settle time
         const delay = isTabAlreadyActive ? 50 : 450;
 
         setTimeout(() => {
-          // Re-assert programmatic scroll lock right as the scroll starts, to extend mouse-click/tap immunity
-          if (isProgrammaticScroll) {
-            isProgrammaticScroll.current = true;
-          }
-
           const element = document.getElementById(targetId);
           if (element) {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
+            scrollToSection(targetId);
           } else {
-            // Fallback to parent research section header
-            const parentElement = document.getElementById('research');
-            if (parentElement) {
-              parentElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }
+            scrollToSection('research');
           }
-
-          // Release lock after smooth scroll animation completes cleanly (1300ms)
-          setTimeout(() => {
-            if (isProgrammaticScroll) {
-              isProgrammaticScroll.current = false;
-            }
-          }, 1300);
         }, delay);
       }
     };
@@ -142,7 +110,7 @@ export default function Research() {
       window.removeEventListener('hashchange', handleHash);
       window.removeEventListener('setActiveResearchTab', handleSetCustomTab);
     };
-  }, []);
+  }, [scrollToSection]);
 
   const handleLinkClick = (link: string) => {
     setClickedLinks(prev => {

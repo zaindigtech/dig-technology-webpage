@@ -196,7 +196,7 @@ interface ServiceCardProps {
 function ServiceCard({ svc, i }: ServiceCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const Icon = svc.icon;
-  const { setActiveSection, isProgrammaticScroll } = useSection();
+  const { scrollToSection } = useSection();
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
     if (link.startsWith('#')) {
@@ -225,14 +225,7 @@ function ServiceCard({ svc, i }: ServiceCardProps) {
         }));
       } else {
         const targetId = link.substring(1);
-        const element = document.getElementById(targetId);
-        if (element) {
-          window.history.pushState(null, '', link);
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+        scrollToSection(targetId);
       }
     }
   };

@@ -67,7 +67,7 @@ const TECH_CARDS = [
 export default function Workflows() {
   const [activeId, setActiveId] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const { activeSection, setActiveSection, isProgrammaticScroll } = useSection();
+  const { activeSection, scrollToSection } = useSection();
   const isActive = activeSection === 'workflow';
 
   const activeIdRef = useRef(0);
@@ -97,34 +97,10 @@ export default function Workflows() {
 
         setActiveId(targetTabIndex);
 
-        if (setActiveSection) {
-          setActiveSection('workflow');
-        }
-
-        if (isProgrammaticScroll) {
-          isProgrammaticScroll.current = true;
-        }
-
         const delay = isTabAlreadyActive ? 50 : 450;
 
         setTimeout(() => {
-          if (isProgrammaticScroll) {
-            isProgrammaticScroll.current = true;
-          }
-
-          const element = document.getElementById(targetId);
-          if (element) {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-
-          setTimeout(() => {
-            if (isProgrammaticScroll) {
-              isProgrammaticScroll.current = false;
-            }
-          }, 1300);
+          scrollToSection(targetId);
         }, delay);
       }
     };
@@ -135,7 +111,7 @@ export default function Workflows() {
       window.removeEventListener('hashchange', handleHash);
       window.removeEventListener('setActiveWorkflowTab', handleSetCustomTab);
     };
-  }, [setActiveSection, isProgrammaticScroll]);
+  }, [scrollToSection]);
 
   const activeCard = TECH_CARDS[activeId];
 
