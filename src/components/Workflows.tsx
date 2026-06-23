@@ -235,11 +235,34 @@ export default function Workflows() {
                       </p>
                     </div>
                   )}
-                  
 
                 </div>
               </motion.div>
             </div>
+
+            {activeId === 0 && (
+              <motion.p 
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-xs text-slate-500 italic mt-2 leading-relaxed"
+              >
+                <strong className="not-italic font-semibold text-slate-600">Fig. Reference: </strong>
+                Avseth, P., Lehocki, I., Jensen, E., Hals, T. K., Dahlgren, T., & Lie, J. E. (2026). Quantitative seismic interpretation using AVO feasibility modelling and non-stationary classification – A Barents Sea demonstration. Geophysical Prospecting. (In Prep)
+              </motion.p>
+            )}
+
+            {activeId === 1 && (
+              <motion.p 
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-xs text-slate-500 italic mt-2 leading-relaxed"
+              >
+                <strong className="not-italic font-semibold text-slate-600">Fig. Reference: </strong>
+                Fluid density map derived from density-ratio attributes, using the methodology of Lehocki et al. (2025): Algorithms for extraction of reliable density ratios from pre-stack seismic data — Part 2: Applications, Geophysical Prospecting, 73, 1–33. <a href="https://doi.org/10.1111/1365-2478.70030" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700 transition-colors">https://doi.org/10.1111/1365-2478.70030</a>
+              </motion.p>
+            )}
           </div>
         </div>
       </div>

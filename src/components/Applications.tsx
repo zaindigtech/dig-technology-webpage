@@ -146,6 +146,18 @@ export default function Applications() {
             </motion.div>
           </AnimatePresence>
         </div>
+
+        {activeId === 1 && (
+          <motion.p 
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-xs text-slate-500 italic mt-2 leading-relaxed"
+          >
+            <strong className="not-italic font-semibold text-slate-600">Fig. Reference: </strong>
+            Avseth, P., Lehocki, I., Jensen, E., Hals, T. K., Dahlgren, T., & Lie, J. E. (2026). Quantitative seismic interpretation using AVO feasibility modelling and non-stationary classification – A Barents Sea demonstration. Geophysical Prospecting. (In Prep)
+          </motion.p>
+        )}
       </div>
     </div>
   </motion.section>
