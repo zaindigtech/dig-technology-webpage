@@ -37,7 +37,7 @@ export default function CTA() {
                 <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
               </a>
               <p className="text-sm text-slate-300">
-                Email us at :{' '}
+                ... or email us at:{' '}
                 <a 
                   href="mailto:hello@digtech.no" 
                   className="text-pink font-semibold underline underline-offset-4 hover:text-white transition-colors"
