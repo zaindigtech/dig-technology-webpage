@@ -31,11 +31,20 @@ export default function CTA() {
               Discover how much more value your data can deliver with the right expertise. Connect with our team to discuss your specific challenges.
             </p>
             
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-col items-start gap-4">
               <a href="mailto:hello@digtech.no" className="btn btn-primary px-8 py-4 rounded-none font-semibold group">
                 Connect with our experts
                 <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
               </a>
+              <p className="text-sm text-slate-300">
+                Email us at :{' '}
+                <a 
+                  href="mailto:hello@digtech.no" 
+                  className="text-pink font-semibold underline underline-offset-4 hover:text-white transition-colors"
+                >
+                  hello@digtech.no
+                </a>
+              </p>
             </div>
           </div>
 
