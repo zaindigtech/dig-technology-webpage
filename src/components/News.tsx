@@ -4,6 +4,13 @@ import { useSection } from '../context/SectionContext';
 
 const NEWS_ITEMS = [
   {
+    date: "August 2026",
+    category: "Awards",
+    title: "Per Honored with SEG Reginald Fessenden & Best Paper Awards",
+    excerpt: "Per Åge Avseth received the prestigious 2026 SEG Reginald Fessenden Award, and the 2025 Best Paper in Interpretation award with co-authors Brian Russell and Bill Goodway at IMAGE 2026.",
+    link: ""
+  },
+  {
     date: "March 17, 2026",
     category: "Events",
     title: "Seismic Reservoir Prediction Seminar (NPF)",
@@ -16,13 +23,6 @@ const NEWS_ITEMS = [
     title: "Shale R&D Project: Phase 2 kicks off",
     excerpt: "DIG Technology is expanding its shale rock physics research into a consortium phase, with OMV supporting Phase 2. A new industry partner is expected to join the project and will be announced soon.",
     link: ""
-  },
-  {
-    date: "November 2025",
-    category: "R&D",
-    title: "Shale R&D Project: Phase 1 completed with OMV",
-    excerpt: "Phase 1 developed a modelling strategy combining geothermal, diagenetic and rock physics modelling of shales — presented by Per Avseth at the EAGE 7th Rock Physics Workshop.",
-    link: "https://www.earthdoc.org/content/papers/10.3997/2214-4609.2025646014"
   }
 ];
 

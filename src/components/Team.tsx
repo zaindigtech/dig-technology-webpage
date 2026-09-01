@@ -32,7 +32,7 @@ const TEAM: TeamMember[] = [
   },
   { 
     name: "Dr. Åsmund Drottning", 
-    role: "COO", 
+    role: "COO and Co-founder", 
     img: "Asmund_blue.png",
     tags: "Rock Physics | AVO Analysis | Seismic Modelling | Survey Design",
     science: "Geophysicist (Dr. Scient., University of Bergen)",
@@ -57,7 +57,7 @@ const TEAM: TeamMember[] = [
   },
   { 
     name: "Dr. Erling Jensen", 
-    role: "Lead Software Architect", 
+    role: "Lead Software Architect and Co-founder", 
     img: "Erling_blue.png",
     tags: "Rock Physics | Inverse Modelling | Reservoir Geophysics | Software",
     science: "Rock Physicist (PhD, University of Bergen)",
