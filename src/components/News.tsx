@@ -11,7 +11,7 @@ const NEWS_ITEMS = [
     link: ""
   },
   {
-    date: "August 2026",
+    date: "July 2026",
     category: "R&D",
     title: "Vår Energi joins Shale Rock Physics R&D Consortium Phase II",
     excerpt: "Vår Energi has joined OMV Norge in supporting Phase II of DIG Technology’s Shale Rock Physics R&D Consortium. The collaboration strengthens the next phase of research into advanced shale rock physics, overpressure prediction, FWI integration, and AVO modelling of clay-rich rocks.",
