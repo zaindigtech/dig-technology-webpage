@@ -9,7 +9,7 @@ const SLIDES = [
     headingHtml: <><span className="text-pink">Reduce Uncertainty</span><br />with Physics-Guided Seismic</>,
     description: 'Rock physics and AVO-driven prediction of lithology, fluids, and reservoir properties.',
     type: 'portrait',
-    src: 'Per11.png',
+    src: 'Per_updated.png',
     alt: 'Dr. Per Avseth, CTO of DIG Technology',
     quote: 'The rock remembers. We help you read it.',
     name: 'Dr. Per Avseth',
