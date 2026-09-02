@@ -11,18 +11,18 @@ const NEWS_ITEMS = [
     link: ""
   },
   {
+    date: "August 2026",
+    category: "R&D",
+    title: "Vår Energi joins Shale Rock Physics R&D Consortium Phase II",
+    excerpt: "Vår Energi has joined OMV Norge in supporting Phase II of DIG Technology’s Shale Rock Physics R&D Consortium. The collaboration strengthens the next phase of research into advanced shale rock physics, overpressure prediction, FWI integration, and AVO modelling of clay-rich rocks.",
+    link: ""
+  },
+  {
     date: "March 17, 2026",
     category: "Events",
     title: "Seismic Reservoir Prediction Seminar (NPF)",
     excerpt: "Join Per Avseth, CTO, at The Biennial Geophysical Seminar 2026 for an insightful session on cutting-edge seismic reservoir prediction using Advanced Probe technology.",
     link: "https://npf.no/konferansen/geophysical2026/"
-  },
-  {
-    date: "February 23, 2026",
-    category: "R&D",
-    title: "Shale R&D Project: Phase 2 kicks off",
-    excerpt: "DIG Technology is expanding its shale rock physics research into a consortium phase, with OMV supporting Phase 2. A new industry partner is expected to join the project and will be announced soon.",
-    link: ""
   }
 ];
 
