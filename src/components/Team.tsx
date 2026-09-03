@@ -27,7 +27,7 @@ const TEAM: TeamMember[] = [
     img: "Per_blue.png",
     tags: "Rock Physics | AVO Analysis | Quantitative Interpretation | Sedimentology",
     science: "Geophysicist (PhD, Stanford University)",
-    honours: "SEG Honorary Lecturer in Europe (2009), Norwegian Geophysical Award (2012)",
+    honours: "SEG Honorary Lecturer in Europe (2009), Norwegian Geophysical Award (2012), Reginald Fessenden award (2026)", 
     pos: "center 15%"
   },
   { 
